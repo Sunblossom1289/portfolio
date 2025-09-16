@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shivangi Mishra — Portfolio</title>
+    <meta name="description" content="Shivangi Mishra · 3DWorld · CollabTune · InkSync · LeetCode · Medium">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div id="cursor-blob" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="#home" aria-label="Home">SM</a>
+        <div class="nav-actions">
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#profiles">Profiles</a>
+          <a class="btn btn-primary magnetic" href="#contact" aria-label="Say hii">Say hii</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="section hero" aria-label="Intro">
+        <div class="hero-content">
+          <div class="hero-greeting shimmer">hii 👋</div>
+          <h1 class="hero-title">I'm <span class="grad">Shivangi Mishra</span></h1>
+          <p class="hero-subtitle">22-year-old builder crafting playful, collaborative, and performant web experiences.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary magnetic" href="#projects">See projects</a>
+            <a class="btn btn-ghost magnetic" href="#profiles">Profiles</a>
+          </div>
+        </div>
+        <div class="hero-badges">
+          <div class="badge float-up" style="--i:1">Web • Creative • Systems</div>
+          <div class="badge float-up" style="--i:2">Design • DX • 3D</div>
+          <div class="badge float-up" style="--i:3">Open Source • Learning</div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects" aria-label="Projects">
+        <div class="section-head">
+          <h2>Featured <span class="grad">Projects</span></h2>
+          <p class="muted">A few things I loved building recently.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card tilt" tabindex="0">
+            <div class="card-glow"></div>
+            <header class="card-header">
+              <h3>3DWorld</h3>
+              <span class="chip">Product Visualization & Export Hub</span>
+            </header>
+            <p class="card-text">High-fidelity 3D previews, real-time lighting, and one-click export pipelines for teams.</p>
+            <div class="card-actions">
+              <a class="btn btn-ghost magnetic" href="#" aria-label="3DWorld Case Study">Case Study</a>
+            </div>
+          </article>
+
+          <article class="card tilt" tabindex="0">
+            <div class="card-glow"></div>
+            <header class="card-header">
+              <h3>CollabTune</h3>
+              <span class="chip">Music Collaboration Platform</span>
+            </header>
+            <p class="card-text">Latency-free sessions, versioned stems, and AI-assisted arrangement in your browser.</p>
+            <div class="card-actions">
+              <a class="btn btn-ghost magnetic" href="#" aria-label="CollabTune Demo">Live Demo</a>
+            </div>
+          </article>
+
+          <article class="card tilt" tabindex="0">
+            <div class="card-glow"></div>
+            <header class="card-header">
+              <h3>InkSync</h3>
+              <span class="chip">Collaborative Writing Platform</span>
+            </header>
+            <p class="card-text">Multiplayer editing, presence cursors, and semantic versioning for long-form writing.</p>
+            <div class="card-actions">
+              <a class="btn btn-ghost magnetic" href="#" aria-label="InkSync Overview">Overview</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="profiles" class="section profiles" aria-label="Profiles">
+        <div class="section-head">
+          <h2>Find me <span class="grad">online</span></h2>
+          <p class="muted">Coding, writing, exploring.</p>
+        </div>
+        <div class="profile-grid">
+          <a class="profile-card tilt" href="https://leetcode.com/u/mishrashivangi2110/" target="_blank" rel="noopener" aria-label="LeetCode profile">
+            <div class="profile-icon">🧩</div>
+            <div class="profile-body">
+              <h3>LeetCode</h3>
+              <p class="muted">@mishrashivangi2110</p>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="profile-card tilt" href="https://medium.com/@mishrashivangi2110" target="_blank" rel="noopener" aria-label="Medium profile">
+            <div class="profile-icon">✍️</div>
+            <div class="profile-body">
+              <h3>Medium</h3>
+              <p class="muted">@mishrashivangi2110</p>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-label="Contact">
+        <div class="cta">
+          <h2>Let’s build something fun</h2>
+          <p class="muted">Open to collabs, internships, and ideas that make people say “hii!”</p>
+          <a class="btn btn-primary magnetic" href="mailto:mishrashivangi2110@example.com">Email me</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Shivangi Mishra • Made with curiosity ✨</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
