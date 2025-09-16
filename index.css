@@ -1,0 +1,117 @@
+:root{
+  --bg:#0b0b10;
+  --surface:#11111a;
+  --text:#e8e8f0;
+  --muted:#a5a5b5;
+  --accent:#7c3aed;
+  --accent-2:#06b6d4;
+  --ring:rgba(124,58,237,.35);
+  --glow:rgba(124,58,237,.2);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:radial-gradient(1200px 800px at 70% -20%, rgba(124,58,237,.12), transparent 60%), #07070c;
+  overflow-x:hidden;
+}
+#particles{position:fixed;inset:0;z-index:-2}
+#cursor-blob{
+  position:fixed;width:36vmin;height:36vmin;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(6,182,212,.35), rgba(124,58,237,.28) 40%, rgba(6,182,212,0) 70%);
+  filter:blur(30px);pointer-events:none;mix-blend-mode:screen;opacity:.6;transform:translate(-50%,-50%);z-index:-1;
+}
+.site-header{position:sticky;top:0;z-index:10;background:linear-gradient(to bottom, rgba(7,7,12,.8), rgba(7,7,12,0));backdrop-filter:saturate(130%) blur(8px)}
+.nav{max-width:1150px;margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+.brand{
+  font-family:"Space Grotesk",Inter,sans-serif;font-weight:800;letter-spacing:.5px;color:#fff;text-decoration:none;
+  display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 30px -10px var(--glow);
+}
+.nav-actions{display:flex;gap:16px;align-items:center}
+.nav-link{color:var(--muted);text-decoration:none;font-weight:500}
+.nav-link:hover{color:#fff}
+
+.section{padding:72px 20px}
+.hero{display:grid;place-items:center;min-height:70vh;position:relative}
+.hero-content{max-width:900px;text-align:center}
+.hero-greeting{
+  font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(44px,10vw,120px);line-height:.9;letter-spacing:-1px;margin:0 0 12px
+}
+.shimmer{
+  background:linear-gradient(90deg,#fff,#c3b9ff 35%,#9ee7f5 60%,#fff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 100%;
+  animation:shimmer 3.2s linear infinite
+}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.hero-title{font-size:clamp(22px,3.5vw,40px);margin:0 0 8px;font-weight:700}
+.grad{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-subtitle{margin:0 auto 22px;color:var(--muted);max-width:640px;line-height:1.6}
+.hero-ctas{display:flex;gap:12px;justify-content:center}
+.badge{
+  display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);color:#d7d7e5;font-weight:600;font-size:14px;box-shadow:0 10px 30px -18px #000 inset
+}
+.hero-badges{position:absolute;inset:auto 0 24px 0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.float-up{opacity:0;transform:translateY(14px);animation:float-up .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*.12s)}
+@keyframes float-up{to{opacity:1;transform:translateY(0)}}
+
+.section-head{max-width:1150px;margin:0 auto 18px;padding:0 2px}
+.section-head h2{margin:0;font-size:clamp(22px,3vw,34px)}
+.muted{color:var(--muted)}
+
+.grid{max-width:1150px;margin:auto;display:grid;gap:18px;grid-template-columns:repeat(auto-fill, minmax(280px,1fr))}
+.card{
+  position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);padding:18px;min-height:200px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow:0 10px 30px -20px rgba(0,0,0,.6);outline:none
+}
+.card:focus{border-color:var(--ring);box-shadow:0 0 0 3px var(--ring)}
+.card:hover{border-color:rgba(124,58,237,.35)}
+.card-glow{
+  position:absolute;inset:-40%;background:radial-gradient(350px 220px at var(--mx,50%) var(--my,50%), rgba(124,58,237,.18), transparent 60%);
+  pointer-events:none;transition:opacity .25s ease;opacity:.6
+}
+.card-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.card h3{margin:4px 0;font-size:20px}
+.card-text{color:#cfd0dd;line-height:1.6}
+.chip{font-size:12px;color:#d2c7ff;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.35);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.card-actions{margin-top:12px}
+
+.profile-grid{max-width:900px;margin:auto;display:grid;gap:16px;grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+.profile-card{
+  position:relative;display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));transition:transform .2s ease, border-color .2s ease
+}
+.profile-card:hover{border-color:rgba(6,182,212,.35)}
+.profile-icon{font-size:24px}
+.profile-body h3{margin:0 0 4px;font-size:18px}
+.profile-body p{margin:0}
+.arrow{margin-left:auto;opacity:.8}
+
+.cta{
+  max-width:900px;margin:40px auto 0;padding:26px;text-align:center;border-radius:22px;border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03))
+}
+.cta h2{margin:0 0 8px;font-size:clamp(20px,3vw,30px)}
+
+.site-footer{text-align:center;color:var(--muted);padding:40px 20px 60px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;font-weight:700;border-radius:12px;text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;border:1px solid transparent
+}
+.btn-primary{color:#0c0c12;background:linear-gradient(135deg,#fff,#d8ccff);box-shadow:0 12px 30px -12px rgba(216,204,255,.4)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{color:#d9e3ff;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+.tilt{will-change:transform;transform-style:preserve-3d}
+.magnetic{position:relative}
+
+@media (max-width:720px){
+  .nav-actions{gap:12px}
+  .badge{font-size:13px}
+}
