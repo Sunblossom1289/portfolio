@@ -1,131 +1,455 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shivangi Mishra — Portfolio</title>
-    <meta name="description" content="Shivangi Mishra · 3DWorld · CollabTune · InkSync · LeetCode · Medium">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shivangi Mishra | Software Engineer</title>
+
+    <meta name="description"
+        content="Shivangi Mishra | Software Engineer | Full Stack Developer | C++ | JavaScript | Node.js | React | Portfolio">
+
+    <meta name="keywords"
+        content="Shivangi Mishra, Portfolio, Software Engineer, Full Stack Developer, C++, JavaScript, Node.js, React, LeetCode">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <canvas id="particles" aria-hidden="true"></canvas>
-    <div id="cursor-blob" aria-hidden="true"></div>
+</head>
 
-    <header class="site-header">
-      <nav class="nav">
-        <a class="brand" href="#home" aria-label="Home">SM</a>
-        <div class="nav-actions">
-          <a class="nav-link" href="#projects">Projects</a>
-          <a class="nav-link" href="#profiles">Profiles</a>
-          <a class="btn btn-primary magnetic" href="#contact" aria-label="Say hii">Say hii</a>
-        </div>
-      </nav>
-    </header>
+<body>
 
-    <main>
-      <section id="home" class="section hero" aria-label="Intro">
-        <div class="hero-content">
-          <div class="hero-greeting shimmer">hii 👋</div>
-          <h1 class="hero-title">I'm <span class="grad">Shivangi Mishra</span></h1>
-          <p class="hero-subtitle">22-year-old builder crafting playful, collaborative, and performant web experiences.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-primary magnetic" href="#projects">See projects</a>
-            <a class="btn btn-ghost magnetic" href="#profiles">Profiles</a>
-          </div>
-        </div>
-        <div class="hero-badges">
-          <div class="badge float-up" style="--i:1">Web • Creative • Systems</div>
-          <div class="badge float-up" style="--i:2">Design • DX • 3D</div>
-          <div class="badge float-up" style="--i:3">Open Source • Learning</div>
-        </div>
-      </section>
+<canvas id="particles"></canvas>
+<div id="cursor-blob"></div>
 
-      <section id="projects" class="section projects" aria-label="Projects">
-        <div class="section-head">
-          <h2>Featured <span class="grad">Projects</span></h2>
-          <p class="muted">A few things I loved building recently.</p>
+<header class="header">
+
+    <nav class="navbar">
+
+        <div class="logo">
+            SM
         </div>
 
-        <div class="grid">
-          <article class="card tilt" tabindex="0">
-            <div class="card-glow"></div>
-            <header class="card-header">
-              <h3>3DWorld</h3>
-              <span class="chip">Product Visualization & Export Hub</span>
-            </header>
-            <p class="card-text">High-fidelity 3D previews, real-time lighting, and one-click export pipelines for teams.</p>
-            <div class="card-actions">
-              <a class="btn btn-ghost magnetic" href="#" aria-label="3DWorld Case Study">Case Study</a>
+        <ul class="nav-links">
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#experience">Experience</a></li>
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#achievements">Achievements</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section id="home" class="hero">
+
+    <div class="hero-left">
+
+        <h3>Hello 👋 I'm</h3>
+
+        <h1>
+            Shivangi
+            <span>Mishra</span>
+        </h1>
+
+        <h2>
+            Software Engineer &
+            Full Stack Developer
+        </h2>
+
+        <p>
+
+            Final-year Computer Science Engineering student at
+            VIT Bhopal passionate about Full Stack Development,
+            scalable web applications and solving challenging
+            Data Structures & Algorithms problems.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn primary">
+
+                View Projects
+
+            </a>
+
+            <a href="https://drive.google.com/file/d/1TqfFp7D7qtgCV25oxm0b9iQv1zAIO607/view"
+                target="_blank"
+                class="btn secondary">
+
+                Resume
+
+            </a>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <h2>1800+</h2>
+
+                <p>DSA Problems</p>
+
             </div>
-          </article>
 
-          <article class="card tilt" tabindex="0">
-            <div class="card-glow"></div>
-            <header class="card-header">
-              <h3>CollabTune</h3>
-              <span class="chip">Music Collaboration Platform</span>
-            </header>
-            <p class="card-text">Latency-free sessions, versioned stems, and AI-assisted arrangement in your browser.</p>
-            <div class="card-actions">
-              <a class="btn btn-ghost magnetic" href="#" aria-label="CollabTune Demo">Live Demo</a>
+            <div class="stat">
+
+                <h2>973+</h2>
+
+                <p>LeetCode</p>
+
             </div>
-          </article>
 
-          <article class="card tilt" tabindex="0">
-            <div class="card-glow"></div>
-            <header class="card-header">
-              <h3>InkSync</h3>
-              <span class="chip">Collaborative Writing Platform</span>
-            </header>
-            <p class="card-text">Multiplayer editing, presence cursors, and semantic versioning for long-form writing.</p>
-            <div class="card-actions">
-              <a class="btn btn-ghost magnetic" href="#" aria-label="InkSync Overview">Overview</a>
+            <div class="stat">
+
+                <h2>50+</h2>
+
+                <p>Medium Articles</p>
+
             </div>
-          </article>
-        </div>
-      </section>
 
-      <section id="profiles" class="section profiles" aria-label="Profiles">
-        <div class="section-head">
-          <h2>Find me <span class="grad">online</span></h2>
-          <p class="muted">Coding, writing, exploring.</p>
         </div>
-        <div class="profile-grid">
-          <a class="profile-card tilt" href="https://leetcode.com/u/mishrashivangi2110/" target="_blank" rel="noopener" aria-label="LeetCode profile">
-            <div class="profile-icon">🧩</div>
-            <div class="profile-body">
-              <h3>LeetCode</h3>
-              <p class="muted">@mishrashivangi2110</p>
-            </div>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="profile-card tilt" href="https://medium.com/@mishrashivangi2110" target="_blank" rel="noopener" aria-label="Medium profile">
-            <div class="profile-icon">✍️</div>
-            <div class="profile-body">
-              <h3>Medium</h3>
-              <p class="muted">@mishrashivangi2110</p>
-            </div>
-            <span class="arrow">↗</span>
-          </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+            src="profile.jpg"
+            alt="Shivangi Mishra">
+
+    </div>
+
+</section>
+
+<section id="about" class="about">
+
+    <div class="section-title">
+
+        <h2>About Me</h2>
+
+    </div>
+
+    <div class="about-container">
+
+        <p>
+
+            I'm Shivangi Mishra, a Computer Science undergraduate at
+            VIT Bhopal with a strong interest in Software Engineering,
+            Full Stack Development and Problem Solving.
+
+        </p>
+
+        <p>
+
+            I enjoy building scalable applications using
+            JavaScript, Node.js, React, MongoDB and modern web
+            technologies while continuously improving my
+            Data Structures & Algorithms skills.
+
+        </p>
+
+        <p>
+
+            I have experience working as a UI/UX &
+            Frontend Development Intern and have built
+            multiple full-stack applications, browser
+            extensions and machine learning projects.
+
+        </p>
+
+    </div>
+
+  </section><!-- ================= SKILLS ================= -->
+
+<section id="skills" class="skills">
+
+    <div class="section-title">
+        <h2>Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <h3>Languages</h3>
+            <p>C++</p>
+            <p>JavaScript</p>
+            <p>Python</p>
+            <p>SQL</p>
+            <p>HTML</p>
+            <p>CSS</p>
         </div>
-      </section>
 
-      <section id="contact" class="section contact" aria-label="Contact">
-        <div class="cta">
-          <h2>Let’s build something fun</h2>
-          <p class="muted">Open to collabs, internships, and ideas that make people say “hii!”</p>
-          <a class="btn btn-primary magnetic" href="mailto:mishrashivangi2110@example.com">Email me</a>
+        <div class="skill-card">
+            <h3>Frameworks</h3>
+            <p>Next.js</p>
+            <p>Node.js</p>
+            <p>Express.js</p>
+            <p>GSAP</p>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Shivangi Mishra • Made with curiosity ✨</p>
-    </footer>
+        <div class="skill-card">
+            <h3>Database</h3>
+            <p>MongoDB</p>
+        </div>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+        <div class="skill-card">
+            <h3>Tools</h3>
+            <p>Git</p>
+            <p>GitHub</p>
+            <p>REST APIs</p>
+            <p>Chrome Extension API</p>
+            <p>Excalidraw</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience" class="experience">
+
+    <div class="section-title">
+        <h2>Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-card">
+
+            <h3>UI/UX & Frontend Development Intern</h3>
+
+            <h4>MyAarohan</h4>
+
+            <span>Feb 2026 – Apr 2026</span>
+
+            <ul>
+
+                <li>Designed responsive mobile-first interfaces.</li>
+
+                <li>Built reusable frontend components.</li>
+
+                <li>Created Safari compatible JavaScript polyfills.</li>
+
+                <li>Developed payment page and career encyclopedia.</li>
+
+                <li>Cleaned datasets using Python.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="timeline-card">
+
+            <h3>Freelance Web Developer</h3>
+
+            <h4>Self Employed</h4>
+
+            <span>Jan 2024 – Aug 2025</span>
+
+            <ul>
+
+                <li>Built a custom Bill Generator Application.</li>
+
+                <li>Added PDF export.</li>
+
+                <li>Responsive desktop and mobile interface.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" class="projects">
+
+    <div class="section-title">
+        <h2>Featured Projects</h2>
+    </div>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+
+            <h3>CollabTune</h3>
+
+            <p>
+
+                Full Stack Music Collaboration Platform with secure
+                co-creation requests, authentication, file uploads,
+                MongoDB database and Node.js backend.
+
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>InkSync</h3>
+
+            <p>
+
+                Medium-inspired collaborative writing platform with
+                team editing, article management and real-time
+                collaboration.
+
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Driver Drowsiness Detection</h3>
+
+            <p>
+
+                Machine Learning application using YOLOv5,
+                OpenCV and PyTorch for real-time fatigue
+                detection.
+
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>TabVault</h3>
+
+            <p>
+
+                Chrome Extension to save, organize and restore
+                browser tabs with a clean popup interface.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section id="achievements" class="achievements">
+
+    <div class="section-title">
+
+        <h2>Achievements</h2>
+
+    </div>
+
+    <div class="achievement-grid">
+
+        <div class="achievement-card">
+
+            <h1>🏆</h1>
+
+            <h3>LeetCode Knight</h3>
+
+            <p>
+
+                Peak Rating 1845
+
+            </p>
+
+            <p>
+
+                973+ Problems Solved
+
+            </p>
+
+        </div>
+
+        <div class="achievement-card">
+
+            <h1>💻</h1>
+
+            <h3>GeeksforGeeks</h3>
+
+            <p>
+
+                Institute Rank 12
+
+            </p>
+
+            <p>
+
+                840+ Problems Solved
+
+            </p>
+
+        </div>
+
+        <div class="achievement-card">
+
+            <h1>✍️</h1>
+
+            <h3>Medium</h3>
+
+            <p>
+
+                50+ Published Articles
+
+            </p>
+
+        </div>
+
+        <div class="achievement-card">
+
+            <h1>🔥</h1>
+
+            <h3>DSA</h3>
+
+            <p>
+
+                1800+ Problems Solved
+
+            </p>
+
+        </div>
+
+    </div>
+
+  </section><div class="contact-card">
+
+    <h3>💻 GitHub</h3>
+
+    <a href="https://github.com/Sunblossom1289"
+        target="_blank">
+        github.com/Sunblossom1289
+    </a>
+
+</div>
+
+<div class="contact-card">
+
+    <h3>🔗 LinkedIn</h3>
+
+    <a href="https://www.linkedin.com/in/shivangi-mishra-7198a4290/"
+        target="_blank">
+        linkedin.com/in/shivangi-mishra-7198a4290
+    </a>
+
+</div>
