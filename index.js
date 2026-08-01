@@ -1,86 +1,355 @@
+// ============================
+// Current Year
+// ============================
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-(() => {
-  const blob = document.getElementById("cursor-blob");
-  let cx = innerWidth / 2, cy = innerHeight / 3, tx = cx, ty = cy;
-  const loop = () => {
-    cx += (tx - cx) * 0.12; cy += (ty - cy) * 0.12;
-    blob.style.left = cx + "px"; blob.style.top = cy + "px";
-    requestAnimationFrame(loop);
-  };
-  addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; });
-  loop();
-})();
+// ============================
+// Smooth Scrolling
+// ============================
 
-// Particles
-(() => {
-  const canvas = document.getElementById("particles");
-  const ctx = canvas.getContext("2d");
-  let dpr = Math.min(devicePixelRatio || 1, 2);
-  function resize(){ dpr = Math.min(devicePixelRatio||1,2); canvas.width = innerWidth*dpr; canvas.height = innerHeight*dpr; }
-  addEventListener("resize", resize); resize();
-  const n = Math.min(120, Math.floor((innerWidth*innerHeight)/18000));
-  const ps = Array.from({length:n}, () => ({
-    x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-    vx: (Math.random()-.5)*0.25, vy:(Math.random()-.5)*0.25,
-    r: 0.7+Math.random()*1.3, h: 190+Math.random()*100
-  }));
-  function step(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.globalCompositeOperation = "lighter";
-    for(const p of ps){
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>canvas.width) p.vx*=-1;
-      if(p.y<0||p.y>canvas.height) p.vy*=-1;
-      ctx.beginPath();
-      ctx.fillStyle = `hsla(${p.h},90%,60%,0.35)`;
-      ctx.arc(p.x, p.y, p.r*dpr, 0, Math.PI*2);
-      ctx.fill();
-    }
-    for(let i=0;i<ps.length;i++){
-      for(let j=i+1;j<ps.length;j++){
-        const a=ps[i], b=ps[j], dx=a.x-b.x, dy=a.y-b.y, d2=dx*dx+dy*dy, R=90*dpr;
-        if(d2<R*R){
-          const alpha = 0.05*(1 - d2/(R*R));
-          ctx.strokeStyle = `rgba(124,58,237,${alpha})`; ctx.lineWidth = 0.6*dpr;
-          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(step);
-  }
-  step();
-})();
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-(() => {
-  const els = document.querySelectorAll(".tilt");
-  const max = 8;
-  function set(el, x, y, r){
-    const px = (x - r.left) / r.width, py = (y - r.top) / r.height;
-    const rx = (py - .5) * -max, ry = (px - .5) * max;
-    el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
-    const glow = el.querySelector(".card-glow");
-    if(glow){ glow.style.setProperty("--mx", `${px*100}%`); glow.style.setProperty("--my", `${py*100}%`); }
-  }
-  function reset(el){ el.style.transform = "perspective(800px) rotateX(0) rotateY(0)"; }
-  els.forEach(el=>{
-    el.addEventListener("pointermove", e=> set(el, e.clientX, e.clientY, el.getBoundingClientRect()));
-    el.addEventListener("pointerleave", ()=> reset(el));
-    el.addEventListener("blur", ()=> reset(el));
-    el.addEventListener("focus", ()=> el.scrollIntoView({block:"nearest", behavior:"smooth"}));
-  });
-})();
+anchor.addEventListener("click",function(e){
 
-(() => {
-  document.querySelectorAll(".magnetic").forEach(btn=>{
-    let raf=0;
-    function move(e){
-      const r=btn.getBoundingClientRect(), mx=e.clientX-(r.left+r.width/2), my=e.clientY-(r.top+r.height/2);
-      btn.style.transform = `translate(${mx*0.15}px,${my*0.15}px)`;
-    }
-    function leave(){ btn.style.transform = "translate(0,0)"; if(raf) cancelAnimationFrame(raf); }
-    btn.addEventListener("pointermove", e=>{ if(raf) cancelAnimationFrame(raf); raf=requestAnimationFrame(()=>move(e)); });
-    btn.addEventListener("pointerleave", leave);
-  });
-})();
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+// ============================
+// Cursor Glow
+// ============================
+
+const blob=document.getElementById("cursor-blob");
+
+let mouseX=window.innerWidth/2;
+
+let mouseY=window.innerHeight/2;
+
+let currentX=mouseX;
+
+let currentY=mouseY;
+
+window.addEventListener("mousemove",e=>{
+
+mouseX=e.clientX;
+
+mouseY=e.clientY;
+
+});
+
+function animateBlob(){
+
+currentX+=(mouseX-currentX)*0.12;
+
+currentY+=(mouseY-currentY)*0.12;
+
+blob.style.left=currentX+"px";
+
+blob.style.top=currentY+"px";
+
+requestAnimationFrame(animateBlob);
+
+}
+
+animateBlob();
+
+// ============================
+// Particle Background
+// ============================
+
+const canvas=document.getElementById("particles");
+
+const ctx=canvas.getContext("2d");
+
+function resize(){
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener("resize",resize);
+
+const particles=[];
+
+for(let i=0;i<100;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*2+1,
+
+dx:(Math.random()-0.5)*0.5,
+
+dy:(Math.random()-0.5)*0.5
+
+});
+
+}
+
+function animateParticles(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+p.x+=p.dx;
+
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+
+ctx.fillStyle="rgba(0,212,255,.6)";
+
+ctx.fill();
+
+});
+
+requestAnimationFrame(animateParticles);
+
+}
+
+animateParticles();
+
+// ============================
+// Animated Counter
+// ============================
+
+const stats=document.querySelectorAll(".stat h2");
+
+function runCounter(){
+
+stats.forEach(stat=>{
+
+const target=parseInt(stat.innerText);
+
+let count=0;
+
+const speed=target/100;
+
+function update(){
+
+count+=speed;
+
+if(count<target){
+
+stat.innerText=Math.floor(count)+"+";
+
+requestAnimationFrame(update);
+
+}
+
+else{
+
+stat.innerText=target+"+";
+
+}
+
+}
+
+update();
+
+});
+
+}
+
+const counterSection=document.querySelector(".stats");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+runCounter();
+
+observer.disconnect();
+
+}
+
+});
+
+});
+
+observer.observe(counterSection);
+
+// ============================
+// Scroll Reveal
+// ============================
+
+const reveal=document.querySelectorAll(
+
+".skill-card,.project-card,.achievement-card,.timeline-card,.contact-card"
+
+);
+
+const revealObserver=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+reveal.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(40px)";
+
+card.style.transition=".8s";
+
+revealObserver.observe(card);
+
+});
+
+// ============================
+// Navbar Highlight
+// ============================
+
+const sections=document.querySelectorAll("section");
+
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-120;
+
+if(pageYOffset>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+// ============================
+// Typing Effect
+// ============================
+
+const heading=document.querySelector(".hero-left h2");
+
+const text="Software Engineer & Full Stack Developer";
+
+let i=0;
+
+heading.innerHTML="";
+
+function type(){
+
+if(i<text.length){
+
+heading.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,45);
+
+}
+
+}
+
+type();
+
+// ============================
+// Card Tilt
+// ============================
+
+document.querySelectorAll(".project-card").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+const rotateY=(x-rect.width/2)/18;
+
+const rotateX=(rect.height/2-y)/18;
+
+card.style.transform=`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="perspective(1000px) rotateX(0deg) rotateY(0deg)";
+
+});
+
+});
+
+// ============================
+// Resume Button Animation
+// ============================
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="scale(1.05)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="scale(1)";
+
+});
+
+});
+
+// ============================
+// Console Message
+// ============================
+
+console.log("Portfolio by Shivangi Mishra 🚀");
